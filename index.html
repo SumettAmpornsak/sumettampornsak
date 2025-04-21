@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>Sumett Ampornsak</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="https://yt3.googleusercontent.com/ytc/AIdro_kA0irHAG_1C1K1Hv-TZUGCIYO9i6ckfRARIcXMj8m_19g2=s900-c-k-c0x00ffffff-no-rj" type="image/x-icon" />
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Kanit', sans-serif;
+            background: url('https://img.freepik.com/free-photo/illustration-geometric-shapes-with-neon-laser-lights-great-backgrounds-wallpapers_181624-32746.jpg?t=st=1745170191~exp=1745173791~hmac=4d590a8de2545d18f6b6d9b0c1746208944aa119bb3dc5804083e9228471cda0&w=1380') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .card-wrapper {
+            width: 400px;
+            height: 250px;
+            perspective: 1200px;
+            position: relative;
+        }
+
+        .card {
+            width: 100%;
+            height: 100%;
+            transition: transform 1s ease-in-out;
+            transform-style: preserve-3d;
+            position: relative;
+            transform: rotateX(0deg) rotateY(15deg) rotateZ(0deg); /* ตั้งค่าการหมุนเริ่มต้น */
+        }
+
+        .card-wrapper:hover .card {
+            transform: rotateX(10deg) rotateY(180deg) rotateZ(15deg); /* การหมุนเมื่อเมาส์ชี้ */
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            color: white;
+            padding: 3px;
+            z-index: 1;
+        }
+
+        .card-face::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 20px;
+            background: linear-gradient(45deg, red, orange, yellow, green, cyan, blue, violet, red);
+            background-size: 400% 400%;
+            animation: rainbowBorder 5s ease-in-out infinite, scaleAnimation 3s ease-in-out infinite;
+            filter: blur(10px); /* ลดความเบลอให้ชัดเจนขึ้น */
+            z-index: -1;
+        }
+
+        .front .content,
+        .back .content {
+            background: #1a1a1a;
+            width: 100%;
+            height: 100%;
+            border-radius: 17px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+            padding: 15px;
+        }
+
+        .front .content {
+            flex-direction: row;
+            gap: 20px;
+            text-align: left;
+        }
+
+        .info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .profile-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid white;
+        }
+
+        .back {
+            transform: rotateY(180deg);
+        }
+
+        .back .content {
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .back a {
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .back i {
+            font-size: 30px;
+        }
+
+        @keyframes rainbowBorder {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes scaleAnimation {
+            0% { 
+                transform: scale(1); 
+            }
+            50% { 
+                transform: scale(1.1); 
+            }
+            100% { 
+                transform: scale(1); 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-wrapper">
+        <div class="card">
+            <div class="card-face front">
+                <div class="content">
+                    <img src="https://yt3.googleusercontent.com/ytc/AIdro_kA0irHAG_1C1K1Hv-TZUGCIYO9i6ckfRARIcXMj8m_19g2=s900-c-k-c0x00ffffff-no-rj"
+                        alt="รูปคุณสุเมธ" class="profile-img">
+                    <div class="info">
+                        <div><strong>Sumett Ampornsak</strong></div>
+                        <div>สาขาวิชาเทคโนโลยีสารสนเทศ</div>
+                        <div>มหาวิทยาลัยราชภัฏนครปฐม</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-face back">
+                <div class="content">
+                    <a href="https://www.facebook.com/Sumettstudio1" target="_blank">
+                        <i class="fab fa-facebook-f" style="color: #3b5998;"></i>
+                    </a>
+                    <a href="https://www.instagram.com/sm.p13" target="_blank">
+                        <i class="fab fa-instagram" style="color: #C13584;"></i>
+                    </a>
+                    <a href="https://github.com/SumettAmpornsak?tab=repositories" target="_blank">
+                        <i class="fab fa-github" style="color: #333;"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@Sumettstudio" target="_blank">
+                        <i class="fab fa-youtube" style="color: #FF0000;"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
