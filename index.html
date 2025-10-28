@@ -46,20 +46,401 @@
 
         body {
             font-family: 'Kanit', sans-serif;
-            background: url('https://i.ibb.co/21yjgq5b/Image-19-1280p.png') no-repeat center center fixed;
-            background-size: cover;
+            /* พื้นหลังใหม่ที่โหลดเร็ว - เส้นใยเทคโนโลยี */
+            background: 
+                linear-gradient(135deg, #0a0a2a 0%, #1a1a4a 50%, #0a0a2a 100%);
+            background-size: 100% 100%;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+            position: relative;
+            overflow: hidden;
         }
 
+        /* เอฟเฟกต์รุ้งฟุ้งๆ แบบ Card สำหรับพื้นหลัง */
+        .rainbow-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .rainbow-bg-element {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(45deg, red, orange, yellow, green, cyan, blue, violet, red);
+            background-size: 400% 400%;
+            animation: rainbowBorder 8s ease-in-out infinite, floatAnimation 6s ease-in-out infinite;
+            filter: blur(25px);
+            opacity: 0.3;
+        }
+
+        .rainbow-bg-element:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .rainbow-bg-element:nth-child(2) {
+            width: 400px;
+            height: 400px;
+            top: 60%;
+            left: 70%;
+            animation-delay: 2s;
+        }
+
+        .rainbow-bg-element:nth-child(3) {
+            width: 250px;
+            height: 250px;
+            top: 20%;
+            left: 80%;
+            animation-delay: 4s;
+        }
+
+        .rainbow-bg-element:nth-child(4) {
+            width: 350px;
+            height: 350px;
+            top: 70%;
+            left: 20%;
+            animation-delay: 6s;
+        }
+
+        /* เส้นใยเทคโนโลยีแบบตาข่าย */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(90deg, transparent 79%, rgba(0, 200, 255, 0.15) 80%, transparent 81%),
+                linear-gradient(0deg, transparent 79%, rgba(0, 200, 255, 0.15) 80%, transparent 81%);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+            z-index: -1;
+        }
+
+        /* เส้นใยแนวทแยงเพิ่มเติม */
+        .diagonal-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(45deg, transparent 79%, rgba(0, 150, 255, 0.1) 80%, transparent 81%),
+                linear-gradient(-45deg, transparent 79%, rgba(0, 150, 255, 0.1) 80%, transparent 81%);
+            background-size: 70px 70px;
+            animation: gridMoveDiagonal 25s linear infinite;
+            z-index: -1;
+        }
+
+        /* ไฟวิ่งตามเส้นใยแนวนอน - แบบใหม่มีชีวิตชีวา */
+        .light-horizontal {
+            position: absolute;
+            top: 0;
+            left: -100px;
+            width: 120px;
+            height: 3px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(0, 255, 255, 0.8) 10%,
+                rgba(0, 102, 255, 1) 50%,
+                rgba(0, 255, 255, 0.8) 90%,
+                transparent 100%);
+            box-shadow: 
+                0 0 15px rgba(0, 255, 255, 0.8),
+                0 0 30px rgba(0, 102, 255, 0.6),
+                0 0 45px rgba(0, 255, 255, 0.4);
+            animation: 
+                moveHorizontal 8s ease-in-out infinite,
+                pulseHorizontal 2s ease-in-out infinite,
+                waveHorizontal 3s ease-in-out infinite;
+            z-index: -1;
+            border-radius: 2px;
+        }
+
+        /* ไฟวิ่งตามเส้นใยแนวตั้ง - แบบใหม่มีชีวิตชีวา */
+        .light-vertical {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            width: 3px;
+            height: 120px;
+            background: linear-gradient(180deg, 
+                transparent 0%, 
+                rgba(0, 255, 255, 0.8) 10%,
+                rgba(0, 102, 255, 1) 50%,
+                rgba(0, 255, 255, 0.8) 90%,
+                transparent 100%);
+            box-shadow: 
+                0 0 15px rgba(0, 255, 255, 0.8),
+                0 0 30px rgba(0, 102, 255, 0.6),
+                0 0 45px rgba(0, 255, 255, 0.4);
+            animation: 
+                moveVertical 6s ease-in-out infinite,
+                pulseVertical 1.5s ease-in-out infinite,
+                waveVertical 2.5s ease-in-out infinite;
+            z-index: -1;
+            border-radius: 2px;
+        }
+
+        /* ไฟวิ่งตามเส้นใยแนวทแยง - แบบใหม่มีชีวิตชีวา */
+        .light-diagonal {
+            position: absolute;
+            width: 250px;
+            height: 3px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(0, 255, 255, 0.8) 10%,
+                rgba(0, 102, 255, 1) 50%,
+                rgba(0, 255, 255, 0.8) 90%,
+                transparent 100%);
+            box-shadow: 
+                0 0 15px rgba(0, 255, 255, 0.8),
+                0 0 30px rgba(0, 102, 255, 0.6),
+                0 0 45px rgba(0, 255, 255, 0.4);
+            animation: 
+                moveDiagonal 12s ease-in-out infinite,
+                pulseDiagonal 2.2s ease-in-out infinite,
+                waveDiagonal 3.5s ease-in-out infinite;
+            z-index: -1;
+            border-radius: 2px;
+        }
+
+        /* เอฟเฟกต์ประกายไฟเพิ่มเติม */
+        .spark {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #00ffff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+            animation: sparkle 1.5s ease-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes gridMove {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(50px, 50px);
+            }
+        }
+
+        @keyframes gridMoveDiagonal {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(35px, 35px);
+            }
+        }
+
+        @keyframes moveHorizontal {
+            0% {
+                left: -120px;
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                left: 100vw;
+                opacity: 0;
+            }
+        }
+
+        @keyframes moveVertical {
+            0% {
+                top: -120px;
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                top: 100vh;
+                opacity: 0;
+            }
+        }
+
+        @keyframes moveDiagonal {
+            0% {
+                transform: rotate(45deg) translateX(-350px) translateY(-350px);
+                opacity: 0;
+            }
+            15% {
+                opacity: 1;
+            }
+            85% {
+                opacity: 1;
+            }
+            100% {
+                transform: rotate(45deg) translateX(calc(100vw + 350px)) translateY(calc(100vh + 350px));
+                opacity: 0;
+            }
+        }
+
+        /* เอฟเฟกต์วิบวาบ */
+        @keyframes pulseHorizontal {
+            0%, 100% {
+                opacity: 0.8;
+                box-shadow: 
+                    0 0 15px rgba(0, 255, 255, 0.8),
+                    0 0 30px rgba(0, 102, 255, 0.6),
+                    0 0 45px rgba(0, 255, 255, 0.4);
+            }
+            50% {
+                opacity: 1;
+                box-shadow: 
+                    0 0 25px rgba(0, 255, 255, 1),
+                    0 0 50px rgba(0, 102, 255, 0.8),
+                    0 0 75px rgba(0, 255, 255, 0.6);
+            }
+        }
+
+        @keyframes pulseVertical {
+            0%, 100% {
+                opacity: 0.7;
+                box-shadow: 
+                    0 0 12px rgba(0, 255, 255, 0.7),
+                    0 0 25px rgba(0, 102, 255, 0.5),
+                    0 0 40px rgba(0, 255, 255, 0.3);
+            }
+            50% {
+                opacity: 0.9;
+                box-shadow: 
+                    0 0 20px rgba(0, 255, 255, 0.9),
+                    0 0 40px rgba(0, 102, 255, 0.7),
+                    0 0 60px rgba(0, 255, 255, 0.5);
+            }
+        }
+
+        @keyframes pulseDiagonal {
+            0%, 100% {
+                opacity: 0.6;
+                box-shadow: 
+                    0 0 10px rgba(0, 255, 255, 0.6),
+                    0 0 20px rgba(0, 102, 255, 0.4),
+                    0 0 30px rgba(0, 255, 255, 0.2);
+            }
+            50% {
+                opacity: 0.8;
+                box-shadow: 
+                    0 0 18px rgba(0, 255, 255, 0.8),
+                    0 0 36px rgba(0, 102, 255, 0.6),
+                    0 0 54px rgba(0, 255, 255, 0.4);
+            }
+        }
+
+        /* เอฟเฟกต์คลื่น */
+        @keyframes waveHorizontal {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            25% {
+                transform: translateY(-2px);
+            }
+            75% {
+                transform: translateY(2px);
+            }
+        }
+
+        @keyframes waveVertical {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            25% {
+                transform: translateX(-2px);
+            }
+            75% {
+                transform: translateX(2px);
+            }
+        }
+
+        @keyframes waveDiagonal {
+            0%, 100% {
+                transform: rotate(45deg) translateX(0) translateY(0);
+            }
+            33% {
+                transform: rotate(45deg) translateX(-1px) translateY(1px);
+            }
+            66% {
+                transform: rotate(45deg) translateX(1px) translateY(-1px);
+            }
+        }
+
+        /* เอฟเฟกต์ประกายไฟ */
+        @keyframes sparkle {
+            0% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0) translate(20px, 20px);
+            }
+        }
+
+        @keyframes floatAnimation {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-20px) scale(1.05);
+            }
+        }
+
+        @keyframes rainbowBorder {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes scaleAnimation {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* ส่วน Card */
         .card-wrapper {
             width: 400px;
             height: 250px;
             perspective: 1200px;
             position: relative;
+            z-index: 1;
         }
 
         .card {
@@ -69,19 +450,13 @@
             transform-style: preserve-3d;
             position: relative;
             transform: rotateX(0deg) rotateY(15deg) rotateZ(0deg);
-            /* ตั้งค่าการหมุนเริ่มต้น */
-        }
-
-        .card {
             background-color: transparent !important;
             border: none !important;
             box-shadow: none !important;
         }
 
-
         .card-wrapper:hover .card {
             transform: rotateX(10deg) rotateY(180deg) rotateZ(15deg);
-            /* การหมุนเมื่อเมาส์ชี้ */
         }
 
         .card-face {
@@ -111,7 +486,6 @@
             background-size: 400% 400%;
             animation: rainbowBorder 5s ease-in-out infinite, scaleAnimation 3s ease-in-out infinite;
             filter: blur(10px);
-            /* ลดความเบลอให้ชัดเจนขึ้น */
             z-index: -1;
         }
 
@@ -156,8 +530,9 @@
         .back .content {
             font-size: 24px;
             text-align: center;
+            flex-direction: column;
+            gap: 15px;
         }
-
 
         .back a {
             margin: 0 10px;
@@ -168,37 +543,52 @@
             font-size: 30px;
         }
 
-        @keyframes rainbowBorder {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        @keyframes scaleAnimation {
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.1);
-            }
-
-            100% {
-                transform: scale(1);
-            }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
         }
     </style>
 </head>
 
-<body>
+<body>
+    <!-- เอฟเฟกต์รุ้งฟุ้งๆ สำหรับพื้นหลัง -->
+    <div class="rainbow-background">
+        <div class="rainbow-bg-element"></div>
+        <div class="rainbow-bg-element"></div>
+        <div class="rainbow-bg-element"></div>
+        <div class="rainbow-bg-element"></div>
+    </div>
+
+    <!-- เส้นใยแนวทแยงเพิ่มเติม -->
+    <div class="diagonal-grid"></div>
+
+    <!-- ไฟวิ่งตามเส้นใยต่างๆ -->
+    <div class="light-horizontal" style="top: 20%; animation-delay: 0s;"></div>
+    <div class="light-horizontal" style="top: 40%; animation-delay: 1.5s;"></div>
+    <div class="light-horizontal" style="top: 60%; animation-delay: 3s;"></div>
+    <div class="light-horizontal" style="top: 80%; animation-delay: 4.5s;"></div>
+    
+    <div class="light-vertical" style="left: 20%; animation-delay: 0.5s;"></div>
+    <div class="light-vertical" style="left: 40%; animation-delay: 2s;"></div>
+    <div class="light-vertical" style="left: 60%; animation-delay: 3.5s;"></div>
+    <div class="light-vertical" style="left: 80%; animation-delay: 5s;"></div>
+    
+    <div class="light-diagonal" style="top: 0; left: 0; animation-delay: 0s;"></div>
+    <div class="light-diagonal" style="top: 0; left: 0; animation-delay: 4s; transform: rotate(-45deg);"></div>
+    <div class="light-diagonal" style="top: 0; left: 0; animation-delay: 2s; transform: rotate(135deg);"></div>
+    <div class="light-diagonal" style="top: 0; left: 0; animation-delay: 6s; transform: rotate(-135deg);"></div>
+
+    <!-- ประกายไฟเพิ่มเติม -->
+    <div class="spark" style="top: 30%; left: 25%; animation-delay: 0.2s;"></div>
+    <div class="spark" style="top: 70%; left: 75%; animation-delay: 1.8s;"></div>
+    <div class="spark" style="top: 45%; left: 60%; animation-delay: 3.2s;"></div>
+    <div class="spark" style="top: 85%; left: 35%; animation-delay: 4.7s;"></div>
+    <div class="spark" style="top: 25%; left: 85%; animation-delay: 2.5s;"></div>
+    <div class="spark" style="top: 65%; left: 15%; animation-delay: 5.3s;"></div>
+
+    <!-- Card -->
     <main class="card-wrapper">
         <div class="card">
             <div class="card-face front">
@@ -212,36 +602,43 @@
             </div>
             <div class="card-face back">
                 <div class="content">
-                    <a href="https://www.facebook.com/Sumettstudio1" target="_blank">
-                        <i class="fab fa-facebook-f" style="color: #3b5998;"></i>
-                    </a>
-                    <!-- <a href="https://www.instagram.com/sm.p13" target="_blank">
-                        <i class="fab fa-instagram" style="color: #C13584;"></i>
-                    </a> -->
-                    <a href="https://github.com/SumettAmpornsak?tab=repositories" target="_blank">
-                        <i class="fab fa-github" style="color: #333;"></i>
-                    </a>
-                    <a href="https://www.youtube.com/@Sumettstudio" target="_blank">
-                        <i class="fab fa-youtube" style="color: #FF0000;"></i>
-                    </a>
-
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/Sumettstudio1" target="_blank">
+                            <i class="fab fa-facebook-f" style="color: #3b5998;"></i>
+                        </a>
+                        <a href="https://github.com/SumettAmpornsak?tab=repositories" target="_blank">
+                            <i class="fab fa-github" style="color: #333;"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@Sumettstudio" target="_blank">
+                            <i class="fab fa-youtube" style="color: #FF0000;"></i>
+                        </a>
+                    </div>
                     <a href="https://appcenter-nine.vercel.app/" class="btn btn-outline-primary btn-sm"
                         target="_blank">คลิกที่นี่เพื่อเข้าสู่ <br> App Center</a>
                 </div>
             </div>
         </div>
     </main>
+
     <script>
         document.querySelector('.card-wrapper').addEventListener('click', function () {
             this.querySelector('.card').classList.toggle('flipped');
         });
+
+        // สร้างประกายไฟเพิ่มแบบไดนามิก
+        function createSparks() {
+            const container = document.body;
+            for (let i = 0; i < 8; i++) {
+                const spark = document.createElement('div');
+                spark.className = 'spark';
+                spark.style.left = Math.random() * 100 + '%';
+                spark.style.top = Math.random() * 100 + '%';
+                spark.style.animationDelay = Math.random() * 6 + 's';
+                container.appendChild(spark);
+            }
+        }
+
+        createSparks();
     </script>
-
 </body>
-
 </html>
-
-
-
-
-
