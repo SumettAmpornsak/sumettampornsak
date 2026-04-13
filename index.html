@@ -75,15 +75,15 @@
         .tech-orb {
             position: absolute;
             border-radius: 50%;
-            filter: blur(60px);
-            opacity: 0.5;
+            filter: blur(20px);
+            opacity: 0.45;
             pointer-events: none;
         }
 
         .orb1 {
             width: 300px;
             height: 300px;
-            background: radial-gradient(circle, rgba(13, 110, 253, 0.6), transparent);
+            background: radial-gradient(circle, rgba(253, 237, 13, 0.6), transparent);
             top: 10%;
             left: 15%;
             animation: float1 8s ease-in-out infinite;
@@ -92,65 +92,22 @@
         .orb2 {
             width: 250px;
             height: 250px;
-            background: radial-gradient(circle, rgba(111, 66, 193, 0.6), transparent);
+            background: radial-gradient(circle, rgba(66, 193, 193, 0.6), transparent);
             bottom: 15%;
             right: 20%;
-            animation: float2 7s ease-in-out infinite;
+            animation: float2 10s ease-in-out infinite;
         }
 
         .orb3 {
             width: 200px;
             height: 200px;
-            background: radial-gradient(circle, rgba(13, 202, 240, 0.5), transparent);
+            background: radial-gradient(circle, rgba(221, 13, 240, 0.5), transparent);
             top: 50%;
             right: 10%;
-            animation: float3 9s ease-in-out infinite;
+            animation: float3 12s ease-in-out infinite;
         }
 
-        .orb4 {
-            width: 280px;
-            height: 280px;
-            background: radial-gradient(circle, rgba(220, 53, 69, 0.5), transparent);
-            top: 30%;
-            left: 60%;
-            animation: float4 6s ease-in-out infinite;
-        }
 
-        .orb5 {
-            width: 220px;
-            height: 220px;
-            background: radial-gradient(circle, rgba(255, 193, 7, 0.4), transparent);
-            bottom: 25%;
-            left: 25%;
-            animation: float5 10s ease-in-out infinite;
-        }
-
-        .orb6 {
-            width: 180px;
-            height: 180px;
-            background: radial-gradient(circle, rgba(32, 201, 151, 0.5), transparent);
-            top: 70%;
-            right: 40%;
-            animation: float6 7.5s ease-in-out infinite;
-        }
-
-        .orb7 {
-            width: 240px;
-            height: 240px;
-            background: radial-gradient(circle, rgba(111, 66, 193, 0.5), transparent);
-            top: 5%;
-            right: 35%;
-            animation: float7 8.5s ease-in-out infinite;
-        }
-
-        .orb8 {
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(13, 110, 253, 0.5), transparent);
-            bottom: 10%;
-            left: 50%;
-            animation: float8 9.5s ease-in-out infinite;
-        }
 
         @keyframes float1 {
 
@@ -209,131 +166,26 @@
             }
         }
 
-        @keyframes float4 {
-
-            0%,
-            100% {
-                transform: translate(0, 0) scale(1);
-                opacity: 0.5;
-            }
-
-            33% {
-                transform: translate(35px, 45px) scale(1.12);
-                opacity: 0.7;
-            }
-
-            66% {
-                transform: translate(-40px, -30px) scale(0.88);
-                opacity: 0.6;
-            }
-        }
-
-        @keyframes float5 {
-
-            0%,
-            100% {
-                transform: translate(0, 0) scale(1);
-                opacity: 0.4;
-            }
-
-            33% {
-                transform: translate(-50px, -35px) scale(1.1);
-                opacity: 0.6;
-            }
-
-            66% {
-                transform: translate(45px, 40px) scale(0.9);
-                opacity: 0.5;
-            }
-        }
-
-        @keyframes float6 {
-
-            0%,
-            100% {
-                transform: translate(0, 0) scale(1);
-                opacity: 0.5;
-            }
-
-            33% {
-                transform: translate(55px, -30px) scale(1.15);
-                opacity: 0.7;
-            }
-
-            66% {
-                transform: translate(-35px, 35px) scale(0.85);
-                opacity: 0.6;
-            }
-        }
-
-        @keyframes float7 {
-
-            0%,
-            100% {
-                transform: translate(0, 0) scale(1);
-                opacity: 0.5;
-            }
-
-            33% {
-                transform: translate(-30px, 50px) scale(1.05);
-                opacity: 0.65;
-            }
-
-            66% {
-                transform: translate(50px, -40px) scale(0.95);
-                opacity: 0.55;
-            }
-        }
-
-        @keyframes float8 {
-
-            0%,
-            100% {
-                transform: translate(0, 0) scale(1);
-                opacity: 0.5;
-            }
-
-            33% {
-                transform: translate(40px, 40px) scale(1.1);
-                opacity: 0.7;
-            }
-
-            66% {
-                transform: translate(-45px, -35px) scale(0.9);
-                opacity: 0.6;
-            }
-        }
-
         /* Responsive สำหรับพื้นหลัง */
         @media (max-width: 768px) {
 
             /* ปรับขนาด orbs ให้เล็กลงบนมือถือ */
             .orb1,
-            .orb4 {
+            .orb3 {
                 width: 200px;
                 height: 200px;
             }
 
             .orb2,
-            .orb7 {
+            .orb1 {
                 width: 180px;
                 height: 180px;
             }
 
             .orb3,
-            .orb8 {
+            .orb2 {
                 width: 150px;
                 height: 150px;
-            }
-
-            .orb5 {
-                width: 160px;
-                height: 160px;
-            }
-
-            .orb6 {
-                width: 130px;
-                height: 130px;
             }
         }
 
@@ -341,36 +193,26 @@
 
             /* ลด blur ของ orbs บนมือถือเพื่อประสิทธิภาพ */
             .tech-orb {
-                filter: blur(15px);
+                filter: blur(10px);
             }
 
             /* ปรับขนาด orbs ให้เล็กลงอีกบนมือถือขนาดเล็ก */
             .orb1,
-            .orb4 {
+            .orb2 {
                 width: 150px;
                 height: 150px;
             }
 
             .orb2,
-            .orb7 {
+            .orb3 {
                 width: 130px;
                 height: 130px;
             }
 
             .orb3,
-            .orb8 {
+            .orb1 {
                 width: 120px;
                 height: 120px;
-            }
-
-            .orb5 {
-                width: 120px;
-                height: 120px;
-            }
-
-            .orb6 {
-                width: 100px;
-                height: 100px;
             }
         }
 
@@ -425,7 +267,7 @@
             background: linear-gradient(45deg, red, orange, yellow, green, cyan, blue, violet, red);
             background-size: 400% 400%;
             animation: rainbowBorder 5s ease-in-out infinite;
-            filter: blur(30px);
+            filter: blur(15px);
             z-index: -1;
         }
 
@@ -511,11 +353,6 @@
     <div class="tech-orb orb1"></div>
     <div class="tech-orb orb2"></div>
     <div class="tech-orb orb3"></div>
-    <div class="tech-orb orb4"></div>
-    <div class="tech-orb orb5"></div>
-    <div class="tech-orb orb6"></div>
-    <div class="tech-orb orb7"></div>
-    <div class="tech-orb orb8"></div>
 
     <!-- Card -->
     <main class="card-wrapper">
